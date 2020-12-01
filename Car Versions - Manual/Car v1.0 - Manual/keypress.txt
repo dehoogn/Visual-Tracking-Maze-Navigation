@@ -1,0 +1,7 @@
+#include <fcntl.h>
+#include <termios.h>
+
+struct termios t;
+tcgetattr(STDIN_FILENO, &t);
+t.c_lflag &- ~ICANON;
+tcsetattr(STDIN_FILENO, TCSANOW, &t);

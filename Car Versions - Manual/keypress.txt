@@ -1,0 +1,24 @@
+#include <fcntl.h>
+
+#include <termios.h>
+
+
+
+struct termios t;
+
+tcgetattr(STDIN_FILENO, &t);
+
+t.c_lflag &= ~ICANON;
+
+tcsetattr(STDIN_FILENO, TCSANOW, &t);
+input = 'm';
+while(input != 'q')
+{
+	std::cin >> input;
+	switch (input)
+	{
+		case 'w':
+			forward();
+		//Add rest here
+	{
+}
